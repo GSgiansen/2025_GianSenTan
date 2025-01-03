@@ -12,6 +12,12 @@ function App() {
 
   const [selectedCoins, setSelectedCoins] = useState([]);
 
+  const calculateChange = (amount, coins) => {
+    coins.sort((a, b) => b - a).reverse();
+    console.log(amount, coins);
+    console.log("Calculating change");
+  }
+
   return (
     <>
       <div>
@@ -24,7 +30,6 @@ function App() {
               className={selectedCoins.includes(coin) ? "selected" : ""}
               key={index}
               onClick={() => {
-                console.log(selectedCoins);
                 if (selectedCoins.includes(coin)) {
                   setSelectedCoins(
                     selectedCoins.filter(
@@ -34,6 +39,7 @@ function App() {
                 } else {
                   setSelectedCoins([...selectedCoins, coin]);
                 }
+                // console.log(selectedCoins);
               }}
             >
               {coin}
@@ -51,7 +57,12 @@ function App() {
       </div>
 
       <div>
-        <button>Submit your test!</button>
+        <button
+          onClick={() => {
+            calculateChange(amount, selectedCoins);
+          }
+          }
+        >Submit your test!</button>
       </div>
     </>
   );
