@@ -3,6 +3,8 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
+import javax.validation.Valid;
+
 public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
     public static void main(String[] args) throws Exception {
         new HelloWorldApplication().run(args);
@@ -13,5 +15,6 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
         final HelloWorldResource resource = new HelloWorldResource(configuration.getTemplate());
         environment.jersey().register(resource);
         environment.jersey().register(new CoinChangeResource());
+        environment.jersey().register(new ValidationExceptionMapper());
     }
 }
