@@ -12,5 +12,6 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
     public void run(HelloWorldConfiguration configuration, Environment environment) {
         final HelloWorldResource resource = new HelloWorldResource(configuration.getTemplate());
         environment.jersey().register(resource);
+        environment.jersey().register(new CoinChangeResource());
     }
 }
