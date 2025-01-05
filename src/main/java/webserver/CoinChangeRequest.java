@@ -15,7 +15,15 @@ public class CoinChangeRequest {
         return coins;
     }
 
+    public void setCoins(List<BigDecimal> coins) {
+        this.coins = coins;
+    }
+
     public BigDecimal getAmount() {
         return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
     }
 }
