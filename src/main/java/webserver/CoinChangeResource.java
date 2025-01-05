@@ -29,7 +29,7 @@ public class CoinChangeResource {
 
     public static boolean checkValidAmount(BigDecimal amt) {
         if (amt.compareTo(BigDecimal.ZERO) < 0 || amt.compareTo(new BigDecimal("10000")) > 0)
-            throw new RuntimeException("Invalid amt, amount must be between 0 and 10000");
+            throw new RuntimeException("Invalid amt: amount must be between 0 and 10000 (inclusive).");
         return true;
     }
 
